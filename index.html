@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app = "resumeApp">
 
   <head>
 
@@ -11,7 +11,7 @@
     <title>Alaa B. Abdelfattah</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -26,7 +26,7 @@
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top" ng-controller="ResumeController" ng-init="load()">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -75,7 +75,7 @@
           <div class="subheading mb-5">Lilienthalweg 39 · Münster, 48167, Germany · +34 654 77 4565 ·
             <a href="mailto:alaa.cs@hotmail.com">alaa.cs@hotmail.com</a>
           </div>
-          <p class="mb-5">GIS Developer/Analyst fluent in various Geospatial and web tools and technolgies.
+          <p class="mb-5">GIS Developer/Analyst fluent in various Geospatial and web tools and technologies.
 Doing Master of Science in Geospatial Technogies- An Erasmus Mundus Joint Degree Master Program (mastergeotech.info).
 Have a Bachelor degree of Computer Science from Ain Shams University, Egypt.
 Have eight years of professional experience working as software developer specialzing in GIS applications.</p>
@@ -119,48 +119,36 @@ Have eight years of professional experience working as software developer specia
         <div class="my-auto">
           <h2 class="mb-5">Adventures Map</h2>
 
-          <div class="container mx-0 px-0">
+          <div class="container mx-0 px-0 mx-auto">
             <div class="row">
-              <ul class="nav flex-column col-md-2 col-12 justify-content-center align-self-center">
-                <li class="nav-item align-self-center">
-                  <a class="nav-link active" href="#">1987 : 2008</a>
+              <ul class="nav col-md-2 col-12 justify-content-center align-self-center">
+                <li ng-repeat="item in experience" class="nav-item align-self-center">
+                  <a class="nav-link active small text-center"
+                    data-toggle="tooltip" data-placement="right" title="{{item.description}}"
+                    ng-click = "experienceItemClicked(item)"
+                    href="#">{{item.from + ((item.to) ? " to " + item.to : "")}}</a>
                 </li>
-                <li class="nav-item align-self-center">
-                  <a class="nav-link active" href="#">2008</a>
-                </li>
-                <li class="nav-item align-self-center">
-                  <a class="nav-link" href="#">2009</a>
-                </li>
-                <li class="nav-item align-self-center">
-                  <a class="nav-link" href="#">2010</a>
-                </li>
-                <li class="nav-item align-self-center">
-                  <a class="nav-link disabled" href="#">2011</a>
-                </li>
-                <li class="nav-item align-self-center">
-                  <a class="nav-link" href="#">2012</a>
-                </li>
-                <li class="nav-item align-self-center">
-                  <a class="nav-link" href="#">2013</a>
-                </li>
-                <li class="nav-item align-self-center">
-                  <a class="nav-link" href="#">2014</a>
-                </li>
-                <li class="nav-item align-self-center">
-                  <a class="nav-link" href="#">2015</a>
-                </li>
-                <li class="nav-item align-self-center">
-                  <a class="nav-link" href="#">2016</a>
-                </li>
-                <li class="nav-item align-self-center">
-                  <a class="nav-link" href="#">2017</a>
-                </li>
-                <li class="nav-item align-self-center">
-                  <a class="nav-link" href="#">2018</a>
-                </li>
-              </ul>
-              <div id="map" style="height:700px"  class="resume-item w-100 col-md-10 col-12 d-flex flex-column flex-md-row mb-2">
 
+              </ul>
+              <div id="map" style="height:700px"
+                class="col-md-10 col-12 mb-2 px-2">
+
+              </div>
+            </div>
+            <div class="row">
+              <div class= "col-md-2 col-12">
+
+              </div>
+              <div class="btn-group btn-group-toggle justify-content-center align-self-center col-md-10 col-12" data-toggle="buttons">
+                <label class="btn btn-light active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Experiences
+                </label>
+                <label class="btn btn-light">
+                  <input type="radio" name="options" id="option2" autocomplete="off"> Education
+                </label>
+                <label class="btn btn-light">
+                  <input type="radio" name="options" id="option3" autocomplete="off"> Places
+                </label>
               </div>
             </div>
           </div>
@@ -379,13 +367,16 @@ Have eight years of professional experience working as software developer specia
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="node_modules/leaflet/dist/leaflet.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
     <!-- Custom scripts for this template -->
     <script src="js/resume.js"></script>
+    <script src="js/resumeapp.js"></script>
 
   </body>
 

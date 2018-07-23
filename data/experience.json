@@ -1,14 +1,264 @@
 [
-	{"title": "1987:2008"},
-	{"title": "2008"},
-	{"title": "2009"},
-	{"title": "2010"},
-	{"title": "2011"},
-	{"title": "2012"},
-	{"title": "2013"},
-	{"title": "2014"},
-	{"title": "2015"},
-	{"title": "2016"},
-	{"title": "2017"},
-	{"title": "2018"}
+	{
+		"experienceType":"bornAndRaised",
+		"from": "1987",
+		"to": "2004",
+		"description":"Born and raised in Cairo, Egypt",
+		"location": {
+			"place":"Al Rehab City",
+			"city": "Cairo, Egypt",
+			"lat":30.0653278,
+			"long":31.4794939,
+			"country": "Egypt"
+		},
+	},
+	{
+		"experienceType":"study",
+		"from": "2004",
+		"to": "2008",
+		"description":"Attended the university, Faculty of Computer and Information Sciences Ain Shams University",
+		"degree": "Bachelor of Computer Science",
+		"program": "",
+		"grade":"Overall: good, Graduation Project: 'Voice Morphing tool', Grade (Excellent)",
+		"locations":[
+			{
+				"place":"Ain Shams University, Cairo, Egypt",
+				"website":"http://cis.asu.edu.eg//english/",
+				"city": "Cairo, Egypt",
+				"lat":30.075807,
+				"long":31.2789273,
+				"country": "Egypt"
+			}
+		]
+	},
+	{
+		"from": "2009",
+		"experienceType":"work",
+		"companyName":"Ministry of Investment, Egypt",
+		"companyWebsite":"http://www.miic.gov.eg/English/Pages/default.aspx",
+		"title":"Software Developer",
+		"description":"Worked as a Software Developer at Ministry of Investment, Egypt",
+		"location": {
+			"place":"Ministry of Investment, Cairo, Egypt",
+			"city": "Cairo, Egypt",
+			"lat":30.051068,
+			"long":31.2433933,
+			"country": "Egypt"
+		},
+		"projects":[
+			{
+				"name": "Developing websites and portals for internal use in the ministry and other websites and utilities for the benefit of the minister ",
+				"website": "http://www.miic.gov.eg/English/Pages/default.aspx",
+				"description": "Overall grade (Good). Graduation Project: 'Voice Morphing tool', Grade (Excellent)",
+				"location": {
+					"place":"Ministry of Investment, Cairo, Egypt",
+					"city": "Cairo, Egypt",
+					"lat":30.051068,
+					"long":31.2433933,
+					"country": "Egypt"
+				},
+				"tools-used":["Windows Froms.NET","ASP.Net", "MS SQL Server 2000, 2005", "Crystal reports"]
+			}
+		]
+	},
+	{
+		"from": "2010",
+		"to": "2012",
+		"experienceType":"work",
+		"companyName":"ESRI North East Africa",
+		"companyWebsite":"http://www.esrinea.com/",
+		"title":"Software Developer",
+		"description":"Started a GIS career at ESRI North East Africa. Worked as Software Developer and then as a Senior Software Developer building mainly web GIS applications",
+		"location": {
+			"place":"Esri Northeast Africa",
+			"city": "Cairo, Egypt",
+			"lat":29.9725409,
+			"long":31.2807508,
+			"country": "Egypt"
+		},
+		"projects":[
+			{
+				"name": "ADSDI Mapviewer",
+				"website": "https://geoportal.abudhabi.ae/mapviewer/index.html",
+				"description": "Abu Dhabi Geoportal Mapviewer",
+				"location": {
+					"place":"Esri Northeast Africa",
+					"city": "Cairo, Egypt",
+					"lat":29.9725409,
+					"long":31.2807508,
+					"country": "Egypt"
+				},
+				"tools-used":["Adobe Flex","Action Script", "WebORB", "Microsoft .NET"]
+			},
+			{
+				"name": "Cleaning management system for HASA municipality in KSA (Kingdom of Saudi Arabia)",
+				"website": "https://www.alhasa.gov.sa",
+				"description": "Developed a reporting module that is used throughout the whole application, ad-hoc reporting, KPIs, charts, and geographical reports, which are used in performance improvement, and decision making",
+				"location": {
+					"place":"Esri Northeast Africa",
+					"city": "Cairo, Egypt",
+					"lat":29.9725409,
+					"long":31.2807508,
+					"country": "Egypt"
+				},
+				"tools-used":["Adobe Flex","Action Script", "WebORB", "Microsoft .NET"]
+			},
+			{
+				"name": "Qatar NJM system",
+				"website": "",
+				"description": "Team member in a system for Qatar’s Ministry of Interior, comprises integrated software and hardware infrastructure which utilizes the latest geospatial technologies in resources tracking, emergency call taking, and dispatching police units to crime scenes instantly. Developed various modules in CallTaking module and Mapviewer module, and fixed bugs throughout all modules of the project",
+				"location": {
+					"place":"Esri Northeast Africa",
+					"city": "Cairo, Egypt",
+					"lat":29.9725409,
+					"long":31.2807508,
+					"country": "Egypt"
+				},
+				"tools-used":["Adobe Flex","Action Script", "Flex API for ArcServer"]
+			},
+			{
+				"name": "Electronic City Planning(ECP) for Jeddah Municipality",
+				"website": "",
+				"description": "Key member in design and implantation phases in the project, ECP is a cadastral GIS system involved in the operations of land services and integrates with several systems in the municipality, was based in the site in KSA so as to handle the deployment, integration with external systems, also to conduct the operation support",
+				"location": {
+					"place":"Jeddah Municipality",
+					"city": "Jeddah, KSA",
+					"lat":21.4869625,
+					"long":39.1569719,
+					"country": "KSA"
+				},
+				"tools-used":["Microsoft Silverlight", "ArcGIS API for Silverlight", "Oracle", "PLSQL", "Microsoft .NET"]
+			}
+		]
+	},
+	{
+		"from": "2013",
+		"to": "2017",
+		"experienceType":"work",
+		"companyName":"Khatib and Alami",
+		"companyWebsite":"http://khatibalami.com/Portfolio/GSI.html",
+		"title":"Software Team Lead",
+		"description":"Worked as a Software Team Lead at Khatib & Alami also a leader GIS company in the middle east",
+		"location": {
+			"place":"Khatib and Alami, Cairo office",
+			"city": "Cairo, Egypt",
+			"lat":30.0526959,
+			"long":31.1979647,
+			"country": "Egypt"
+		},
+		"projects":[
+			{
+				"name": "CMMI induction and training-Lebanon",
+				"description": "So as to assure that CMMI standards and processes are properly applied, I’ve been to the headquarters of Khatib and Alami in Lebanon to receive CMMI training",
+				"location": {
+					"place":"Khatib and Alami, Beirut",
+					"city": "Beirut, Lebanon",
+					"lat":33.87196,
+					"long":35.4853432,
+					"country": "Lebanon"
+				}
+			},
+			{
+				"name": "MEW(Ministry of Electricity and Water)-Kuwait",
+				"website": "https://www.mew.gov.kw/",
+				"description": "Participated in application design, and in developing several modules in the application",
+				"location": {
+					"place":"Khatib and Alami, Beirut",
+					"city": "Beirut, Lebanon",
+					"lat":33.87196,
+					"long":35.4853432,
+					"country": "Lebanon"
+				},
+				"tools-used":["Microsoft Silverlight", "ArcGIS API for Silverlight", "ArcGIS Server 10.0", "ASP.NET Web API"]
+			},
+			{
+				"name": "QHFMP(Qatar Health Facilities Master Plan)-Qatar",
+				"website": "https://www.moph.gov.qa",
+				"description": "Designed, and developed various modules of the application, conducting system deployments, and all communication among team members, stakeholders, and project manager. ",
+				"location": {
+					"place":"Supreme Council of Health",
+					"city": "Doha, Qatar",
+					"lat":25.296942,
+					"long":51.5066633,
+					"country": "Qatar"
+				},
+				"tools-used":["Adobe Flex","Action Script", "Flex APIs for ArcServer", "ArcGIS Server 10.0"]
+			},
+			{
+				"name": "ADSIC Geospatial Executive Dashboard- Abu Dhabi",
+				"website": "https://adsic.abudhabi.ae/adsic/",
+				"description": "Troubleshooting system in an early stage of the system operation where high availability is a key non-functional requirement, fixing functional, performance, and deployment bugs were also my responsibility.",
+				"location": {
+					"place":"ADSIC, Abu Dhabi",
+					"city": "Abu Dhabi, UAE",
+					"lat":24.4208048,
+					"long":54.4386459,
+					"country": "UAE"
+				},
+				"tools-used":["Microsoft Silverlight", "ArcGIS API for Silverlight", "JavaScript", "ArcGIS API for Javascript", "ArcGIS Server 10.0", "ASP.NET Web API"]
+			},
+			{
+				"name": "ADTCA(Abu Dhabi Tourism And Culture Authority)",
+				"website": "https://tcaabudhabi.ae/",
+				"description": "Dashboard for the top management of ADTCA to monitor and visualize many performance indicators related to or affecting Abu Dhabi tourism.",
+				"location": {
+					"place":"Abu Dhabi Tourism And Culture Authority",
+					"city": "Abu Dhabi, UAE",
+					"lat":24.419588,
+					"long":54.4447154,
+					"country": "UAE"
+				},
+				"tools-used":["ASP.NET Web API", "HTML", "JavaScript", "ArcGIS API for Javascript", "ArcGIS Server 10.2", "Bootstrap", "jQuery", "Highcharts.js"]
+			},
+			{
+				"name": "Aldar Properties(Abu Dhabi)",
+				"website": "https://www.aldar.com/",
+				"description": "Designing and implementing the geodatabase required for the GIS infrastructure of Aldar, along with configuring/developing a web mapping application using Portal for ArcGIS, Web App Builder. ",
+				"location": {
+					"place":"Aldar HQ",
+					"city": "Abu Dhabi, UAE",
+					"lat":24.441111,
+					"long":54.5730893,
+					"country": "UAE"
+				},
+				"tools-used":["Oracle", "HTML", "JavaScript", "ArcGIS API for Javascript", "Portal for ArcGIS", "ArcGIS Server 10.3", "ArcGIS Web App Builder", "jQuery"]
+			}
+		]
+	},
+	{
+		"from": "2017",
+		"to": "2019",
+		"experienceType":"study",
+		"description":"Started a master degree in Geospatial Technologies",
+		"degree": "Master of Science in Geospatial Technologies",
+		"program": "Erasmus Mundus Joint Master of Science in Geospatial Technologies",
+		"remarks":"Awarded Erasmus+ Category A Scholarship",
+		"website":"http://mastergeotech.info",
+		"grade":"",
+		"locations":[
+			{
+			"place":"Universitat Jaume I (UJI), Castellón, Dept. Lenguajes y Sistemas Informaticos (LSI)",
+			"website":"http://geotec.uji.es/",
+			"city": "Castellon de la Plana, Spain",
+			"lat":39.994416,
+			"long":0.0707537,
+			"country": "Spain"
+			},
+			{
+			"place":"Westfälische Wilhelms-Universität Münster (WWU), Institute for Geoinformatics (ifgi)",
+			"website":"https://ifgi.uni-muenster.de",
+			"city": "Münster, Germany",
+			"lat":51.9694397,
+			"long":7.5936455,
+			"country": "Germany"
+			},
+			{
+			"place":"Universidade Nova de Lisboa (UNL), NOVA - Information Management School (NOVA IMS)",
+			"website":"http://www.novaims.unl.pt/",
+			"city": "Lisboa, Portugal",
+			"lat":38.73226,
+			"long":-9.1626027,
+			"country": "Portugal"
+			}]
+	}
 ]

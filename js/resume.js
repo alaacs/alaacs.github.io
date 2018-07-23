@@ -1,13 +1,8 @@
 (function($) {
   "use strict"; // Start of use strict
-  $(document).ready(function(){
-    var map = L.map('map').setView([30.0444, 31.2357], 2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    readExperience()
-  })
+ $(document).ready(function(){
 
+ });
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -33,11 +28,3 @@
   });
 
 })(jQuery); // End of use strict
-function readExperience()
-{
-  $.getJSON("data/experience.json", function(result){
-    //alert(JSON.stringify(result))
-  }).fail(function() {
-    alert( "error" );
-  })
-}
