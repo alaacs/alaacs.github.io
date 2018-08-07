@@ -19,9 +19,10 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
     <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="node_modules/leaflet.markercluster/dist/MarkerCluster.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/resume.min.css" rel="stylesheet">
+    <link href="css/resume.css" rel="stylesheet">
     <link href="node_modules/leaflet/dist/leaflet.css" rel="stylesheet">
 
   </head>
@@ -122,11 +123,17 @@ Have eight years of professional experience working as software developer specia
           <div class="container mx-0 px-0 mx-auto">
             <div class="row">
               <ul class="nav col-md-2 col-12 justify-content-center align-self-center">
-                <li ng-repeat="item in experience" class="nav-item align-self-center">
+                <li class="nav-item col-12 align-self-center">
+                  <a class="nav-link active small text-center"
+                    data-toggle="tooltip" data-placement="right" title="All"
+                    ng-click = "experienceItemClicked('all')"
+                    href>All</a>
+                </li>
+                <li ng-repeat="item in experience" class="nav-item col-12 align-self-center">
                   <a class="nav-link active small text-center"
                     data-toggle="tooltip" data-placement="right" title="{{item.description}}"
                     ng-click = "experienceItemClicked(item)"
-                    href="#">{{item.from + ((item.to) ? " to " + item.to : "")}}</a>
+                    href>{{item.from + ((item.to) ? " to " + item.to : "")}}</a>
                 </li>
 
               </ul>
@@ -140,14 +147,14 @@ Have eight years of professional experience working as software developer specia
 
               </div>
               <div class="btn-group btn-group-toggle justify-content-center align-self-center col-md-10 col-12" data-toggle="buttons">
-                <label class="btn btn-light active">
-                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Experiences
+                <label class="btn btn-light active" ng-click="selectAllClicked()">
+                  <input type="radio" name="options" id="option1" autocomplete="off"  checked> All
                 </label>
-                <label class="btn btn-light">
-                  <input type="radio" name="options" id="option2" autocomplete="off"> Education
+                <label class="btn btn-light" ng-click="selectEducationClicked()">
+                  <input type="radio" name="options" id="option2" autocomplete="off" > Education
                 </label>
-                <label class="btn btn-light">
-                  <input type="radio" name="options" id="option3" autocomplete="off"> Places
+                <label class="btn btn-light" ng-click="selectWorkClicked()">
+                  <input type="radio" name="options" id="option3" autocomplete="off" > Work
                 </label>
               </div>
             </div>
@@ -372,8 +379,9 @@ Have eight years of professional experience working as software developer specia
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="node_modules/leaflet/dist/leaflet.js"></script>
     <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/leaflet/dist/leaflet.js"></script>
+    <script src="node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
     <!-- Custom scripts for this template -->
     <script src="js/resume.js"></script>
     <script src="js/resumeapp.js"></script>

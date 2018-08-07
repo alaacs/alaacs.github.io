@@ -145,3 +145,7 @@ a {
 a:hover, a:focus, a:active {
   color: #824027;
 }
+.markermultiicon{
+  color: black;
+  font-size: large;
+}

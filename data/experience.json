@@ -10,7 +10,7 @@
 			"lat":30.0653278,
 			"long":31.4794939,
 			"country": "Egypt"
-		},
+		}
 	},
 	{
 		"experienceType":"study",
@@ -122,10 +122,10 @@
 				"description": "Key member in design and implantation phases in the project, ECP is a cadastral GIS system involved in the operations of land services and integrates with several systems in the municipality, was based in the site in KSA so as to handle the deployment, integration with external systems, also to conduct the operation support",
 				"location": {
 					"place":"Jeddah Municipality",
-					"city": "Jeddah, KSA",
+					"city": "Jeddah, Saudi Arabia",
 					"lat":21.4869625,
 					"long":39.1569719,
-					"country": "KSA"
+					"country": "Saudi Arabia"
 				},
 				"tools-used":["Microsoft Silverlight", "ArcGIS API for Silverlight", "Oracle", "PLSQL", "Microsoft .NET"]
 			}
@@ -193,7 +193,7 @@
 					"city": "Abu Dhabi, UAE",
 					"lat":24.4208048,
 					"long":54.4386459,
-					"country": "UAE"
+					"country": "United Arab Emirates"
 				},
 				"tools-used":["Microsoft Silverlight", "ArcGIS API for Silverlight", "JavaScript", "ArcGIS API for Javascript", "ArcGIS Server 10.0", "ASP.NET Web API"]
 			},
@@ -206,7 +206,7 @@
 					"city": "Abu Dhabi, UAE",
 					"lat":24.419588,
 					"long":54.4447154,
-					"country": "UAE"
+					"country": "United Arab Emirates"
 				},
 				"tools-used":["ASP.NET Web API", "HTML", "JavaScript", "ArcGIS API for Javascript", "ArcGIS Server 10.2", "Bootstrap", "jQuery", "Highcharts.js"]
 			},
@@ -219,9 +219,22 @@
 					"city": "Abu Dhabi, UAE",
 					"lat":24.441111,
 					"long":54.5730893,
-					"country": "UAE"
+					"country": "United Arab Emirates"
 				},
 				"tools-used":["Oracle", "HTML", "JavaScript", "ArcGIS API for Javascript", "Portal for ArcGIS", "ArcGIS Server 10.3", "ArcGIS Web App Builder", "jQuery"]
+			},
+			{
+				"name": "Review and Development of Kuwait Municipality’s GIS",
+				"website": "https://www.baladia.gov.kw/",
+				"description": "Development of Kuwait Municipality GIS including workflow automation through different departments of the Municipality, creating Web GIS and integrating with the current infrastructure, and developing senior management's dashboard for monitoring the progress and task force",
+				"location": {
+					"place":"Kuwait Municipality",
+					"city": "Kuwait City, Kuwait",
+					"lat":29.3676173,
+					"long":47.9706702,
+					"country": "Kuwait"
+				},
+				"tools-used":["Microsoft SQL", "HTML", "JavaScript", "ArcGIS API for Javascript", "jQuery", "Highcharts","Portal for ArcGIS", "ArcGIS Server 10.3", "ArcGIS Workflow Manager"]
 			}
 		]
 	},
