@@ -124,9 +124,11 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
     markerIcon = $scope.getMarkerIcon(icontype)
     var marker = L.marker([location.lat, location.long],{icon: markerIcon})//.addTo($scope.map);
     var popuphtml = `<div>
-                  <img src = '${markerIcon.options.iconUrl}' style = 'float: left;margin-right: 15px;'></img>
-                  <strong>${location.place}, ${location.city}</strong><br/>`
-    if(exp) popuphtml+=`<u>Description:</u>${exp.description}<br/>
+                  <img src = '${markerIcon.options.iconUrl}' style = 'float: left;margin-right: 15px;'></img>`
+	if(location.website)
+		popuphtml += `<strong><a href= "${location.website}" target = "_blank">${location.place}</a> </strong>, ${location.city}<br/>`;
+    else popuphtml += `<strong>${location.place} </strong>, ${location.city}<br/>`
+    if(exp) popuphtml+=`<u>Description: </u>${exp.description}<br/>
 				
                   ${exp.from} ${exp.to? "to " +exp.to:""}
                   
