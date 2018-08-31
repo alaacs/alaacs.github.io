@@ -1,5 +1,56 @@
-var connect = require('connect');
-var serveStatic = require('serve-static');
-connect().use(serveStatic(__dirname)).listen(8080, function(){
-    
-});
+var express = require('express')
+var app = express()
+
+app.use(express.static(__dirname));
+
+var server = app.listen(8000, function () {
+
+    var host = server.address().address
+    var port = server.address().port
+
+    console.log('Express app listening at http://%s:%s', host, port)
+
+})
+// var express = require('express');
+// var app = express();
+// const port = 5000;
+// const path = require('path');
+// var bodyParser = require("body-parser");
+// app.use(bodyParser.json({type: 'application/json'}));
+//
+// //app.use(bodyParser.json());
+//
+// console.log("Starting server");
+//
+// app.use(express.static(path.join(__dirname + '/img')));
+// app.use(express.static(path.join(__dirname + '/css')));
+// app.use(express.static(path.join(__dirname + '/js')));
+// app.use(express.static(path.join(__dirname + '/node_modules')));
+// app.use(express.static(path.join(__dirname + '/data')));
+//
+// // Allow cross origin
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
+//
+// app.set('port', port);
+//
+// //View engine for rendering html
+// var engine = require('consolidate');
+// app.engine('html', engine.mustache);
+// app.set('view engine', 'html');
+//
+// app.get('/', function(req, res) {
+//   console.log("starting request")
+//   res.render(path.join(__dirname + '/index.html'));
+// });
+//
+//
+//
+//
+// app.listen(port, function() {
+//   console.log("You've been served!")
+//   console.log("Node app is running at localhost:" + app.get('port'))
+// });
