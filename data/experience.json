@@ -57,7 +57,7 @@
 					"long":31.2433933,
 					"country": "Egypt"
 				},
-				"tools-used":["Windows Froms.NET","ASP.Net", "MS SQL Server 2000, 2005", "Crystal reports"]
+				"tools":["Windows Froms.NET","ASP.Net", "MS SQL Server 2000, 2005", "Crystal reports"]
 			}
 		]
 	},
@@ -88,7 +88,7 @@
 					"long":31.2807508,
 					"country": "Egypt"
 				},
-				"tools-used":["Adobe Flex","Action Script", "WebORB", "Microsoft .NET"]
+				"tools":["Adobe Flex","Action Script", "WebORB", "Microsoft .NET"]
 			},
 			{
 				"name": "Cleaning management system for HASA municipality in KSA (Kingdom of Saudi Arabia)",
@@ -101,7 +101,7 @@
 					"long":31.2807508,
 					"country": "Egypt"
 				},
-				"tools-used":["Adobe Flex","Action Script", "WebORB", "Microsoft .NET"]
+				"tools":["Adobe Flex","Action Script", "WebORB", "Microsoft .NET"]
 			},
 			{
 				"name": "Qatar NJM system",
@@ -114,7 +114,7 @@
 					"long":31.2807508,
 					"country": "Egypt"
 				},
-				"tools-used":["Adobe Flex","Action Script", "Flex API for ArcServer"]
+				"tools":["Adobe Flex","Action Script", "Flex API for ArcServer"]
 			},
 			{
 				"name": "Electronic City Planning(ECP) for Jeddah Municipality",
@@ -127,7 +127,7 @@
 					"long":39.1569719,
 					"country": "Saudi Arabia"
 				},
-				"tools-used":["Microsoft Silverlight", "ArcGIS API for Silverlight", "Oracle", "PLSQL", "Microsoft .NET"]
+				"tools":["Microsoft Silverlight", "ArcGIS API for Silverlight", "Oracle", "PLSQL", "Microsoft .NET"]
 			}
 		]
 	},
@@ -169,7 +169,7 @@
 					"long":35.4853432,
 					"country": "Lebanon"
 				},
-				"tools-used":["Microsoft Silverlight", "ArcGIS API for Silverlight", "ArcGIS Server 10.0", "ASP.NET Web API"]
+				"tools":["Microsoft Silverlight", "ArcGIS API for Silverlight", "ArcGIS Server 10.0", "ASP.NET Web API"]
 			},
 			{
 				"name": "QHFMP(Qatar Health Facilities Master Plan)-Qatar",
@@ -182,7 +182,7 @@
 					"long":51.5066633,
 					"country": "Qatar"
 				},
-				"tools-used":["Adobe Flex","Action Script", "Flex APIs for ArcServer", "ArcGIS Server 10.0"]
+				"tools":["Adobe Flex","Action Script", "Flex APIs for ArcServer", "ArcGIS Server 10.0"]
 			},
 			{
 				"name": "ADSIC Geospatial Executive Dashboard- Abu Dhabi",
@@ -195,7 +195,7 @@
 					"long":54.4386459,
 					"country": "United Arab Emirates"
 				},
-				"tools-used":["Microsoft Silverlight", "ArcGIS API for Silverlight", "JavaScript", "ArcGIS API for Javascript", "ArcGIS Server 10.0", "ASP.NET Web API"]
+				"tools":["Microsoft Silverlight", "ArcGIS API for Silverlight", "JavaScript", "ArcGIS API for Javascript", "ArcGIS Server 10.0", "ASP.NET Web API"]
 			},
 			{
 				"name": "ADTCA(Abu Dhabi Tourism And Culture Authority)",
@@ -208,7 +208,7 @@
 					"long":54.4447154,
 					"country": "United Arab Emirates"
 				},
-				"tools-used":["ASP.NET Web API", "HTML", "JavaScript", "ArcGIS API for Javascript", "ArcGIS Server 10.2", "Bootstrap", "jQuery", "Highcharts.js"]
+				"tools":["ASP.NET Web API", "HTML", "JavaScript", "ArcGIS API for Javascript", "ArcGIS Server 10.2", "Bootstrap", "jQuery", "Highcharts.js"]
 			},
 			{
 				"name": "Aldar Properties(Abu Dhabi)",
@@ -221,7 +221,7 @@
 					"long":54.5730893,
 					"country": "United Arab Emirates"
 				},
-				"tools-used":["Oracle", "HTML", "JavaScript", "ArcGIS API for Javascript", "Portal for ArcGIS", "ArcGIS Server 10.3", "ArcGIS Web App Builder", "jQuery"]
+				"tools":["Oracle", "HTML", "JavaScript", "ArcGIS API for Javascript", "Portal for ArcGIS", "ArcGIS Server 10.3", "ArcGIS Web App Builder", "jQuery"]
 			},
 			{
 				"name": "Review and Development of Kuwait Municipality’s GIS",
@@ -234,7 +234,7 @@
 					"long":47.9706702,
 					"country": "Kuwait"
 				},
-				"tools-used":["Microsoft SQL", "HTML", "JavaScript", "ArcGIS API for Javascript", "jQuery", "Highcharts","Portal for ArcGIS", "ArcGIS Server 10.3", "ArcGIS Workflow Manager"]
+				"tools":["Microsoft SQL", "HTML", "JavaScript", "ArcGIS API for Javascript", "jQuery", "Highcharts","Portal for ArcGIS", "ArcGIS Server 10.3", "ArcGIS Workflow Manager"]
 			}
 		]
 	},

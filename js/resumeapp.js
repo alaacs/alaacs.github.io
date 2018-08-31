@@ -125,11 +125,19 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
     var marker = L.marker([location.lat, location.long],{icon: markerIcon})//.addTo($scope.map);
     var popuphtml = `<div>
                   <img src = '${markerIcon.options.iconUrl}' style = 'float: left;margin-right: 15px;'></img>
-                  <h5>${location.place}, ${location.city}</h5>`
-    if(exp) popuphtml+=`<ul>
-                  <li>${exp.from} ${exp.to? "to " +exp.to:""}</li>
-                  </ul>
+                  <strong>${location.place}, ${location.city}</strong><br/>`
+    if(exp) popuphtml+=`<u>Description:</u>${exp.description}<br/>
+				
+                  ${exp.from} ${exp.to? "to " +exp.to:""}
+                  
                   </div>`
+	else 
+	{
+		popuphtml += `<u>Project:</u> <a href = "${proj.website}" target= "_blank">${proj.name}</a><br/>
+					<u>Description:</u>${proj.description}`;
+		if(proj.tools)
+			popuphtml+= `<br/><u>Tools used:</u> ${proj.tools.join(", ")}`;
+	}
     marker.bindPopup(popuphtml)
     $scope.markersLayer.addLayer(marker)
     var country = $scope.getCountryPolygon(location.country)
