@@ -1,46 +1,26 @@
 {
-    "title": "Resume",
-    "name": "startbootstrap-resume",
-    "version": "4.1.1",
-    "description": "Resume is a simple, yet elegant resume and CV theme for Bootstrap 4.",
-    "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
-    ],
-    "homepage": "https://startbootstrap.com/template-overviews/resume",
-    "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume/issues",
-        "email": "feedback@startbootstrap.com"
-    },
+    "title": "Alaa Abdelfattah CV",
+    "name": "alaaabdelfattah-cv",
+    "version": "1.0.1",
+    "description": "The CV of Alaa B. Abdelfattah, a software developer specializd in geospatial technologies and Geographic Information Systems.",
+    "homepage": "https://www.linkedin.com/in/alaabakry/",
     "license": "MIT",
-    "author": "Start Bootstrap",
+    "author": "Alaa Abdelfattah",
     "contributors": [
-        "David Miller (http://davidmiller.io/)"
+        "Alaa Abdelfattah (https://github.com/alaacs)"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume.git"
+        "url": "https://github.com/alaacs/alaabio.git"
     },
     "dependencies": {
         "angular": "^1.7.2",
         "bootstrap": "^4.1.1",
-        "devicons": "^1.8.0",
+        "devicon": "^2.0.0",
+        "font-awesome": "^4.7.0",
         "jquery": "3.3.1",
         "leaflet": "^1.3.3",
         "leaflet.markercluster": "^1.3.0",
         "simple-line-icons": "^2.4.1"
-    },
-    "devDependencies": {
-        "browser-sync": "2.24.5",
-        "gulp": "^3.9.1",
-        "gulp-clean-css": "3.9.4",
-        "gulp-header": "2.0.5",
-        "gulp-rename": "1.3.0",
-        "gulp-sass": "4.0.1",
-        "gulp-uglify": "3.0.0"
     }
 }
