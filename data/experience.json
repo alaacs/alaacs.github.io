@@ -104,7 +104,7 @@
 		},
 		{
 			"name": "Qatar NJM system",
-			"website": "",
+			"website": "https://portal.moi.gov.qa/wps/portal/MOIInternet/departmentcommittees/ncc/",
 			"description": "Team member in a system for Qatar’s Ministry of Interior, comprises integrated software and hardware infrastructure which utilizes the latest geospatial technologies in resources tracking, emergency call taking, and dispatching police units to crime scenes instantly. Developed various modules in CallTaking module and Mapviewer module, and fixed bugs throughout all modules of the project",
 			"location": {
 				"place":"Esri Northeast Africa",
@@ -117,7 +117,7 @@
 		},
 		{
 			"name": "Electronic City Planning(ECP) for Jeddah Municipality",
-			"website": "",
+			"website": "http://www.jeddah.gov.sa/English/index.php",
 			"description": "Key member in design and implantation phases in the project, ECP is a cadastral GIS system involved in the operations of land services and integrates with several systems in the municipality, was based in the site in KSA so as to handle the deployment, integration with external systems, also to conduct the operation support",
 			"location": {
 				"place":"Jeddah Municipality",

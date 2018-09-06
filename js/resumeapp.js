@@ -62,6 +62,28 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
       $scope.fiterTime = "all"
       $scope.inializeMap();
       $scope.loadDependencies();
+      $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: (target.offset().top)
+            }, 1000, "easeInOutExpo");
+            return false;
+          }
+        }
+      });
+
+      // Closes responsive menu when a scroll trigger link is clicked
+      $('.js-scroll-trigger').click(function() {
+        $('.navbar-collapse').collapse('hide');
+      });
+
+      // Activate scrollspy to add active class to navbar items on scroll
+      $('body').scrollspy({
+        target: '#sideNav'
+      });
   }
   $scope.selectAllClicked = function(){
     $scope.filterExperiences = "all";
@@ -109,12 +131,7 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
     }
     var icon = L.icon({
       iconUrl: iconUrl,
-
       iconSize:     [32, 32], // size of the icon
-      // shadowSize:   [50, 64], // size of the shadow
-      // iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-      // shadowAnchor: [4, 62],  // the same for the shadow
-      // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
     return icon;
   }
@@ -122,7 +139,7 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
     icontype = exp ? exp.experienceType : "project";
     // $scope.markersLayer.addLayer(marker)
     markerIcon = $scope.getMarkerIcon(icontype)
-    var marker = L.marker([location.lat, location.long],{icon: markerIcon})//.addTo($scope.map);
+    var marker = L.marker([location.lat, location.long],{icon: markerIcon})
     var title = "";
     if(proj) title = "PROJECT";
     else if (exp)
@@ -159,13 +176,11 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
     marker.bindPopup(popuphtml)
     $scope.markersLayer.addLayer(marker)
     var country = $scope.getCountryPolygon(location.country)
-    console.log(country)
     if(country)
     {
       country.exp = exp
       country.proj = proj
       $scope.geojsonlayer.addData(country);
-      //console.log(country)
     }
   }
   $scope.showExperiences = function(){
