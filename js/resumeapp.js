@@ -18,12 +18,12 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
   }
   $scope.inializeMap = function(){
     $scope.map = L.map('map').setView([30.0444, 31.2357], 2);
-    //mymap.on('load', onMapLoad);
-    var Esri_OceanBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
-      	attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
-      	maxZoom: 13
-      });
-      $scope.layer = Esri_OceanBasemap.addTo($scope.map);
+    var CartoDB_Voyager = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+    	subdomains: 'abcd',
+    	maxZoom: 19
+    });
+    $scope.layer = CartoDB_Voyager.addTo($scope.map);
     // $scope.layer = L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
     //   maxZoom: 18,
     //   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -33,14 +33,14 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
           if(feature.exp)
           {
             if(feature.exp.experienceType == "work")
-              return {color: "#4A14CC"}
+              return {"color": "#4A14CC", "weight": 2, "fillOpacity":0.1, "fill" : true, "dashArray" : [1,2,3,4,4,5,6]}
             else if(feature.exp.experienceType == "bornAndRaised")
-              return {color: "#817799"}
+              return {"color": "#817799", "weight": 2, "fillOpacity":0.1, "fill" : true, "dashArray" : [1,2,3,4,4,5,6]}
             else if(feature.exp.experienceType == "study")
-                return {color: "#E6FF00"}
+                return {"color": "#E6FF00", "weight": 2, "fillOpacity":0.1, "fill" : true, "dashArray" : [1,2,3,4,4,5,6]}
           }
           else if (feature.proj){
-            return {color: "#00FF00"}
+            return {"color": "#00FF00", "weight": 2, "fillOpacity":0.1, "fill" : true, "dashArray" : [1,2,3,4,4,5,6]}
           }
           else return {color: "#000000"}
         }
@@ -123,19 +123,35 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
     // $scope.markersLayer.addLayer(marker)
     markerIcon = $scope.getMarkerIcon(icontype)
     var marker = L.marker([location.lat, location.long],{icon: markerIcon})//.addTo($scope.map);
+    var title = "";
+    if(proj) title = "PROJECT";
+    else if (exp)
+    {
+      switch (exp.experienceType) {
+        case "work":
+          title = "JOB";
+          break;
+        case "study":
+          title = "EDUCATION";
+          break;
+        default:
+        "";
+      }
+    }
     var popuphtml = `<div>
+                      <div style = "text-align:center"><u><strong>${title}</u></strong></div>
                   <img src = '${markerIcon.options.iconUrl}' style = 'float: left;margin-right: 15px;'></img>`
 	if(location.website)
 		popuphtml += `<strong><a href= "${location.website}" target = "_blank">${location.place}</a> </strong>, ${location.city}<br/>`;
     else popuphtml += `<strong>${location.place} </strong>, ${location.city}<br/>`
     if(exp) popuphtml+=`<u>Description: </u>${exp.description}<br/>
-				
+
                   ${exp.from} ${exp.to? "to " +exp.to:""}
-                  
+
                   </div>`
-	else 
+	else
 	{
-		popuphtml += `<u>Project:</u> <a href = "${proj.website}" target= "_blank">${proj.name}</a><br/>
+		popuphtml += `<u>Project name:</u> <a href = "${proj.website}" target= "_blank">${proj.name}</a><br/>
 					<u>Description:</u>${proj.description}`;
 		if(proj.tools)
 			popuphtml+= `<br/><u>Tools used:</u> ${proj.tools.join(", ")}`;
