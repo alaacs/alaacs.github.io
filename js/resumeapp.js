@@ -14,6 +14,7 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
       $scope.$apply();
       $('[data-toggle="tooltip"]').tooltip()
     });
+    new GitHubCalendar(".calendar", "alaacs", {responsive: true});
 
   }
   $scope.inializeMap = function() {
