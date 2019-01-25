@@ -17,27 +17,27 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sharm El-Sheikh Guide</title>
+    <title>Remove unnecessary line breaks</title>
 
 
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-    
+
     <link href="css/resume.css" rel="stylesheet">
-  
+
 
   </head>
 
   <body id="page-top" ng-controller="ResumeController" ng-init="load()">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-      
+
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">Sharm <3</span>
         <span class="d-none d-lg-block">
         <!-- <img  src="img/reef.jpeg" alt="" style = "width: 100%;margin-top: 90%;"> -->
-          <img class="img-fluid img-profile mx-auto mb-2" src="img/reef.jpeg" alt="" style = "border:0;max-height:none;max-width:100%">
+          <!-- <img class="img-fluid img-profile mx-auto mb-2" src="img/reef.jpeg" alt="" style = "border:0;max-height:none;max-width:100%"> -->
         </span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          
+
         </ul>
       </div>
     </nav>
@@ -54,22 +54,20 @@
 
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto">
-          <h1 class="mb-0">Federica's 
-            <span class="text-primary" style = "color:#0093ff!important">Blog Article</span> Helper
+          <h1 style="text-transform: unset;" class="mb-0">Remove unnecessary line breaks when copying from PDF
+            <!-- <span class="text-primary" style = "color:#0093ff!important">Blog Article</span> Helper -->
           </h1>
           <!-- The CV in <a target="_blank" href="data/Alaa Abdelfattah - GIS Professional.pdf">PDF format</a> -->
-        
-          
+
+
         </div>
       </section>
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="map_section">
         <div class="my-auto">
-          <textarea id="textarea" rows="100" cols="100">
-            At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
-          </textarea>
+          <textarea id="textarea" rows="30" cols="75"></textarea><br>
           <button id="btnRemoveBreaks" onclick = "clearBreaks()">Remove Line Breaks</button>
         </div>
-        
+
       </section>
 
     </div>
@@ -77,8 +75,16 @@
 
     <script>
       clearBreaks = function(){
-        $('#textarea').val($('#textarea')[0].value.replace(/(?:\r\n|\r|\n)/g, ' '))
-        //var x = document.getElementById("btnRemoveBreaks");
+
+        var result = "";
+        partsWithPeriodBreak = $('#textarea')[0].value.split(/(?:\.\r\n|\.\r|\.\n)/);
+        for (var j = 0; j < partsWithPeriodBreak.length; j++) {
+          var part = partsWithPeriodBreak[j];
+          result += part.split(/(?:\r\n|\r|\n)/).join(" ");
+          if(j!=partsWithPeriodBreak.length-1)
+          result += ".\n";
+        }
+        $('#textarea').val(result);
       }
     </script>
 
