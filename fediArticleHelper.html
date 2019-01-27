@@ -84,7 +84,7 @@
           if(j!=partsWithPeriodBreak.length-1)
           result += ".\n";
         }
-        $('#textarea').val(result);
+        $('#textarea').val(result.split("@@").join("\n"));
       }
     </script>
 
