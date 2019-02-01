@@ -48,7 +48,7 @@
 		{
 			"name": "Developing websites and portals for internal use in the ministry and other websites and utilities for the benefit of the minister ",
 			"website": "http://www.miic.gov.eg/English/Pages/default.aspx",
-			"description": "Overall grade (Good). Graduation Project: 'Voice Morphing tool', Grade (Excellent)",
+			"description": "While I was working at the ministry I developed various projects for internal use at the ministry and some other for the benefit of the minister. I worked for around 4 projects at this time, 3 of them were web-based composed of basic CRUD applications and the last project was a desktop application querying a database for something personal for the minister.",
 			"location": {
 				"place":"Ministry of Investment, Cairo, Egypt",
 				"city": "Cairo, Egypt",
@@ -56,7 +56,7 @@
 				"long":31.2433933,
 				"country": "Egypt"
 			},
-			"tools":["Windows Froms.NET","ASP.Net", "MS SQL Server 2000, 2005", "Crystal reports"]
+			"tools":["Windows Froms","ASP.Net", "C#", "VB.NET", "MS SQL Server 2000, 2005", "Crystal reports"]
 		}
 	]
 },
