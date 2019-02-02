@@ -1,5 +1,6 @@
 .calendar {
-    width: 750px;
+    max-width: 750px;
+    width:100%;
     font-family: Helvetica, arial;
     border: 1px solid #DDDDDD;
     border-radius: 3px;
@@ -16,7 +17,7 @@
 
 .contrib-legend {
     text-align: right;
-    padding: 0 14px 10px 0;
+    padding: 10px 14px 10px 0;
     display: inline-block;
     float: right;
 }
@@ -52,7 +53,7 @@
     text-align: center;
     border-left: 1px solid #ddd;
     border-top: 1px solid #ddd;
-    font-size: 11px;
+    /* font-size: 11px; */
 }
 
 .contrib-column-first {
@@ -60,10 +61,11 @@
 }
 
 .table-column {
-    display: table-cell;
-    width: 1%;
+    display: block;
+
     padding-right: 10px;
     padding-left: 10px;
+    padding-top: 33px;
     vertical-align: top;
 }
 
