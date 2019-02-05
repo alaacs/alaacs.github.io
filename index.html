@@ -432,25 +432,34 @@ Have eight years of professional experience working as software developer specia
           <br/>
           <table>
             <div id="proj" ng-class = "{0:'proj-row-even', 1:'proj-row-odd'}[project.id%2]"  ng-repeat="project in projects | orderBy:'-id'">
-              <h4 class="col" > <a class="project-title" href="{{project.url}}" target="_blank">{{project.projectName}}</a></h4>
-              <span>{{project.desc}}</span>
-              <div class="">
-                <span > <u>From</u>: {{project.fromDate}}</span>
-                <span > <u>To</u>: {{project.toDate}}</span><br>
-                <span><u>Duration</u>: {{project.durationInMonths}} month(s)</span>
-              </div>
-              <div class="">
-                <span> <u>Role</u>: {{project.role}}</span>
-              </div>
-              <div class="tools-wrapper">
-                <u>Tools</u>:  <span class="tool-label" ng-repeat = "tool in project.techs">{{tool}}</span>
+              <h4 class="col" > <a class="project-title" href="{{project.url && project.url!='' ? project.url : '#'}}"
+                ng-style = "(!project.url || project.url=='') && { 'pointer-events': 'none'}"
+                target="{{project.url && project.url!='' ? '_blank' : '_self'}}">{{project.projectName}}</a></h4>
+              <span><a class="project-desc" href="{{project.descUrl && project.descUrl!='' ? project.descUrl : '#'}}"
+                ng-style = "(!project.descUrl || project.descUrl=='') && { 'pointer-events': 'none'}"
+                target="{{project.descUrl && project.descUrl!='' ? '_blank' : '_self'}}">{{project.desc}}</a></span>
+              <hr>
+
+                <div class="">
+                  <span> <u>Role</u>: {{project.role}}</span>
+                </div>
+                <div class="tools-wrapper">
+                  <u>Tools</u>:  <span class="tool-label" ng-repeat = "tool in project.techs">{{tool}}</span>
+                </div><hr>
+              <div class="row">
+                <div class="col-md-3 col-sm-6">
+                  <span > <u>From</u>: {{project.fromDate}}</span><br>
+                  <span > <u>To</u>: {{project.toDate}}</span><br>
+                  <span><u>Duration</u>: {{project.durationInMonths}} month(s)</span>
+                </div>
+                <div class="col-md-9 col-sm-6">
+                  <span > <u>Employer</u>: {{project.employer}}</span><br>
+                  <span > <u>Client</u>: {{project.client}}</span><br>
+
+                </div>
               </div>
 
-              <div class="">
-                <span > <u>From</u>: {{project.fromDate}}</span><br>
-                <span > <u>To</u>: {{project.toDate}}</span><br>
-                <span><u>Duration</u>: {{project.durationInMonths}} month(s)</span>
-              </div><br>
+              <br>
               <!-- <div class="progress">
                     <div class="progress-bar progress-bar-striped" role="progressbar" ng-style="{'width':project.durationInMonths/12 * 100 + '%'}" aria-valuenow="{{project.durationInMonths/12 * 100}}" aria-valuemin="0" aria-valuemax="100"></div>
               </div> -->

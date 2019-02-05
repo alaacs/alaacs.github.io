@@ -162,7 +162,7 @@ border-radius: 7px;
     margin-bottom: 5px;
 }
 .proj-row-even {
-      background: #39444c;
+      background: #536069;
       color:#e2e1e1;
       border: 12px solid #ccc0;
 border-radius: 7px;
@@ -188,4 +188,12 @@ border-radius: 7px;
     vertical-align: baseline;
     border-radius: .25em;
     background: white;
+}
+.proj-row-odd .project-desc{
+  color: #66849c;
+  text-shadow: 1px 3px 2px #b9adad;
+}
+.proj-row-even .project-desc{
+  color: #e8e8e8;
+  text-shadow: 1px 3px 2px black;
 }
