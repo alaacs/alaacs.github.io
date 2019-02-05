@@ -267,7 +267,7 @@ Have eight years of professional experience working as software developer specia
           <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
               <h3 class="mb-0">Universitat Jaume I (Spain) <br/> University of Münster (Germany)
-			  <br/>NOVA IMS Information management school (Portugal)</h3>
+			  <br/>NOVA IMS Information Management School (Portugal)</h3>
               <div class="subheading mb-3"><a href = "http://mastergeotech.info" target = "_blank">
 			  MSc of Geospatial Technologies</a></div>
               <div>Erasmus+ Category A Scholarship Holder</div>
@@ -432,7 +432,7 @@ Have eight years of professional experience working as software developer specia
           <br/>
           <table>
             <div id="proj" ng-class = "{0:'proj-row-even', 1:'proj-row-odd'}[project.id%2]"  ng-repeat="project in projects | orderBy:'-id'">
-              <h4 class="col" > <a href="{{project.url}}" target="_blank">{{project.projectName}}</a></h4>
+              <h4 class="col" > <a class="project-title" href="{{project.url}}" target="_blank">{{project.projectName}}</a></h4>
               <span>{{project.desc}}</span>
               <div class="">
                 <span > <u>From</u>: {{project.fromDate}}</span>

@@ -18,7 +18,7 @@ h5,
 h6 {
   font-family: 'Saira Extra Condensed', serif;
   font-weight: 700;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #343a40;
 }
 h4 {
@@ -38,7 +38,7 @@ h2 {
 }
 
 .subheading {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 500;
   font-family: 'Saira Extra Condensed', serif;
   font-size: 1.35rem;
@@ -66,7 +66,7 @@ h2 {
 
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 600;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 @media (min-width: 992px) {
@@ -168,6 +168,12 @@ border-radius: 7px;
 border-radius: 7px;
           margin-bottom: 5px;
     padding: 10px;
+}
+.proj-row-odd .project-title {
+  color:#66849c;
+}
+.proj-row-even .project-title {
+  color:#e8e8e8;
 }
 .tool-label{
   display: inline-block;
