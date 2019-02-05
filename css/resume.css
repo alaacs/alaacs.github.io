@@ -14,13 +14,18 @@ body {
 h1,
 h2,
 h3,
-h4,
 h5,
 h6 {
   font-family: 'Saira Extra Condensed', serif;
   font-weight: 700;
   text-transform: uppercase;
   color: #343a40;
+}
+h4 {
+  font-family: 'Saira Extra Condensed', serif;
+  font-weight: 700;
+  
+  /* color: #343a40; */
 }
 
 h1 {
@@ -148,4 +153,33 @@ a:hover, a:focus, a:active {
 .markermultiicon{
   color: black;
   font-size: large;
+}
+.proj-row-odd {
+  background: #e0e6e6;
+  border: 12px solid #ccc0;
+border-radius: 7px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.proj-row-even {
+      background: #39444c;
+      color:#e2e1e1;
+      border: 12px solid #ccc0;
+border-radius: 7px;
+          margin-bottom: 5px;
+    padding: 10px;
+}
+.tool-label{
+  display: inline-block;
+  margin:2px;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #3d76b3;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background: white;
 }
