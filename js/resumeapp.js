@@ -5,11 +5,15 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
     promises = []
     var countriesPromise = $.getJSON("data/countries.geo.json");
     var experiencePromise = $.getJSON("data/experience.json");
+    var projectsPromise = $.getJSON("data/projects.json");
     promises.push(countriesPromise);
     promises.push(experiencePromise);
+    promises.push(projectsPromise);
     Promise.all(promises).then(function(result) {
       $scope.countriespolygons = result[0];
       $scope.experience = result[1];
+      $scope.projects = result[2];
+      $scope.longestProjectDuration = Math.max.apply(Math, $scope.projects.map(function(o) { return o.durationInMonths; }));
       $scope.showExperiences();
       $scope.$apply();
       $('[data-toggle="tooltip"]').tooltip()

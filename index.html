@@ -66,6 +66,9 @@
             <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#git">Github</a>
           </li>
           <li class="nav-item">
@@ -416,6 +419,44 @@ Have eight years of professional experience working as software developer specia
               Microsoft Silverlight</li>
           </ul>
 		  *Skills and technologies are ordered chronologically by the last time used.
+        </div>
+      </section>
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="projects">
+        <div class="my-auto">
+          <h2 class="mb-5">Projects</h2>
+          <p>This project list is based on a <a target="_blank" href="data/projects.json">JSON</a> version of my
+            <a target="_blank" href="data/projects.json">project experience.</a>.
+            <!-- <a target="_blank" href="data/experience.json">Have a look!</a> -->
+            <br>
+          </p>
+          <br/>
+          <table>
+            <div id="proj" ng-class = "{0:'proj-row-even', 1:'proj-row-odd'}[project.id%2]"  ng-repeat="project in projects | orderBy:'-id'">
+              <h4 class="col" > <a href="{{project.url}}" target="_blank">{{project.projectName}}</a></h4>
+              <span>{{project.desc}}</span>
+              <div class="">
+                <span > <u>From</u>: {{project.fromDate}}</span>
+                <span > <u>To</u>: {{project.toDate}}</span><br>
+                <span><u>Duration</u>: {{project.durationInMonths}} month(s)</span>
+              </div>
+              <div class="">
+                <span> <u>Role</u>: {{project.role}}</span>
+              </div>
+              <div class="tools-wrapper">
+                <u>Tools</u>:  <span class="tool-label" ng-repeat = "tool in project.techs">{{tool}}</span>
+              </div>
+
+              <div class="">
+                <span > <u>From</u>: {{project.fromDate}}</span><br>
+                <span > <u>To</u>: {{project.toDate}}</span><br>
+                <span><u>Duration</u>: {{project.durationInMonths}} month(s)</span>
+              </div><br>
+              <!-- <div class="progress">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" ng-style="{'width':project.durationInMonths/12 * 100 + '%'}" aria-valuenow="{{project.durationInMonths/12 * 100}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div> -->
+            </div>
+
+          </table>
         </div>
       </section>
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="git">
