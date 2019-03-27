@@ -430,8 +430,24 @@ Have eight years of professional experience working as software developer specia
             <br>
           </p>
           <br/>
+          <div class="proj-row-odd">
+            <div class="dropdown filter-tools-wrapper">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter by
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu scrollable-menu">
+                <input class="form-control" id="myInput" ng-keydown="filterInputKeyPress($event)" type="text" placeholder="Search..">
+                <li tabindex="-1" ng-keydown = "listItemKeydown($event)" ng-repeat = "skill in skills"><a ng-click="filterProjects(skill)">{{skill}}</a></li>
+              </ul>
+            </div> <span class="label label-info">{{selectedProjects.length}} project(s)</span>
+            <div class="tools-wrapper" style="width: 50%;">
+              <span class="tool-label" ng-repeat = "skill in selectedSkills">{{skill}}</span>
+              <button type="button" class="btn btn-link" ng-show = "selectedSkills && selectedSkills.length > 0" ng-click = "clearFilters()">Clear</button>
+
+            </div>
+          </div>
+
           <table>
-            <div id="proj" ng-class = "{0:'proj-row-even', 1:'proj-row-odd'}[project.id%2]"  ng-repeat="project in projects | orderBy:'-id'">
+            <div id="proj" ng-class = "{0:'proj-row-even', 1:'proj-row-odd'}[$index%2]"  ng-repeat="project in selectedProjects | orderBy:'-id'">
               <h4 class="col" > <a class="project-title" href="{{project.url && project.url!='' ? project.url : '#'}}"
                 ng-style = "(!project.url || project.url=='') && { 'pointer-events': 'none'}"
                 target="{{project.url && project.url!='' ? '_blank' : '_self'}}">{{project.projectName}}</a></h4>
@@ -444,7 +460,7 @@ Have eight years of professional experience working as software developer specia
                   <span> <u>Role</u>: {{project.role}}</span>
                 </div>
                 <div class="tools-wrapper">
-                  <u>Tools</u>:  <span class="tool-label" ng-repeat = "tool in project.techs">{{tool}}</span>
+                  <u>Tools</u>:  <span style="cursor: pointer;" ng-click = "filterProjects(tool)" class="tool-label" ng-repeat = "tool in project.techs">{{tool}}</span>
                 </div><hr>
               <div class="row">
                 <div class="col-md-3 col-sm-6">
@@ -512,7 +528,7 @@ Have eight years of professional experience working as software developer specia
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/jquery-ui-dist/jquery-ui.min.js">
     </script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/leaflet/dist/leaflet.js"></script>
     <script src="node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script>

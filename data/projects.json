@@ -72,7 +72,7 @@
     "url": "",
     "desc": "ECP is a cadastral GIS system involved in the operations of land services and integrates with several systems in the municipality.",
     "role": "Key member in the design and implementation phases in the project. I was based in the site in KSA so as to handle the deployment, integration with external systems, also to conduct the operation support.",
-    "techs": ["Microsoft Silverlight", "Oracle DB", "PLSQL", "Microsoft .NET", "C#", "Entity Framework", "ArcGIS Server", "ArcGIS API for Silverlight"]
+    "techs": ["Microsoft Silverlight", "Oracle", "PLSQL", "Microsoft .NET", "C#", "Entity Framework", "ArcGIS Server", "ArcGIS API for Silverlight"]
   },
   {
     "id": 6,
@@ -132,7 +132,7 @@
     "url": "",
     "desc": "Dashboard for the top management of ADTCA to monitor and visualize many performance indicators related to or affecting Abu Dhabi tourism.",
     "role": "Developed various functions in the system, the system was designed in a way to be a base for a configurable application for similar types of projects. I was the main developer, was also responsible for leading junior developers, deployments, user training.",
-    "techs": ["ASP.NET Web API", "HTML", "JavaScript", "Microsoft SQL Server", "ArcGIS API for Javascript", "ArcGIS Server", "Bootstrap", "jQuery", "Highcharts.js", "AngularJS"]
+    "techs": ["ASP.NET Web API", "HTML", "Javascript", "Microsoft SQL Server", "ArcGIS API for Javascript", "ArcGIS Server", "Bootstrap", "jQuery", "Highcharts.js", "AngularJS"]
   },
   {
     "id": 10,
@@ -147,7 +147,7 @@
     "url": "",
     "desc": "I was hired as an individual outsource to designing and implement the geodatabase required for the GIS infrastructure of Aldar, along with configuring/developing a web mapping application using Portal for ArcGIS, Web App Builder.",
     "role": "Reported to the GIS Manager at Aldar.",
-    "techs": ["HTML", "JavaScript", "ArcGIS API for Javascript", "Oracle DB", "Portal for ArcGIS", "ArcGIS Server", "ArcGIS Web App Builder", "jQuery", "Bootstrap"]
+    "techs": ["HTML", "Javascript", "ArcGIS API for Javascript", "Oracle", "Portal for ArcGIS", "ArcGIS Server", "ArcGIS Web App Builder", "jQuery", "Bootstrap"]
   },
   {
     "id": 11,
@@ -162,7 +162,7 @@
     "url": "",
     "desc": "Development of Kuwait Municipality GIS including workflow automation through different departments of the Municipality.",
     "role": "Creating Web GIS and integrating with the current infrastructure, and developing senior management's dashboard for monitoring the progress and task force.",
-    "techs": ["HTML", "JavaScript", "ArcGIS API for Javascript", "jQuery", "Highcharts", "Microsoft SQL Server", "Portal for ArcGIS", "ArcGIS Server", "ArcGIS Geoprocessing tools", "ArcPY", "Python", "ArcGIS Workflow Manager"]
+    "techs": ["HTML", "Javascript", "ArcGIS API for Javascript", "jQuery", "Highcharts", "Microsoft SQL Server", "Portal for ArcGIS", "ArcGIS Server", "ArcGIS Geoprocessing tools", "ArcPY", "Python", "ArcGIS Workflow Manager"]
   },
   {
     "id": 12,
@@ -177,7 +177,7 @@
     "url": "https://github.com/lbraun/csr_lookup",
     "desc": "With another classmate as we have programming background we chose to skip the course and instead develop an application that proves our skills. The application is a utility for rating and querying CSR (Corporate Social Responsibility) for companies.",
     "role": "My classmate and I decided to learn from each other to get the most out of this project. I learnt a lot about how to work on Github and on my part I was involved in all the development, front-end and back-end.",
-    "techs": ["HTML", "Javascript CSS", "JQuery", " Bootstrap", "AngularJS", "Google Maps API", "Wikipedia API", "NodeJS", "ExpressJS", "Postgres DB"]
+    "techs": ["HTML", "Javascript", "CSS", "jQuery", "Bootstrap", "AngularJS", "Google Maps API", "Wikipedia API", "NodeJS", "ExpressJS", "Postgres DB"]
   },
   {
     "id": 13,
@@ -209,7 +209,7 @@
     "descUrl" : "http://movixplorer.co.nf",
     "desc": "Using an online API for movies to display/search for the Now playing and Top movies in a list and a map based on their production location.",
     "role": "Individual Project",
-    "techs": ["HTML", "Javascript", "CSS", "JQuery", "JQuery Mobile", "Bootstrap", "AngularJS", "Google Maps API", "LeafletJS"]
+    "techs": ["HTML", "Javascript", "CSS", "jQuery", "jQuery Mobile", "Bootstrap", "AngularJS", "Google Maps API", "LeafletJS"]
   },
   {
     "id": 15,
