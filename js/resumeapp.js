@@ -12,14 +12,40 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
     Promise.all(promises).then(function(result) {
       $scope.countriespolygons = result[0];
       $scope.experience = result[1];
-      $scope.projects = result[2];
-      $scope.longestProjectDuration = Math.max.apply(Math, $scope.projects.map(function(o) { return o.durationInMonths; }));
+      $scope.allProjects = result[2];
+      $scope.selectedProjects = $scope.allProjects;
+      //get techs from each project object
+      var skills = $scope.allProjects.map(a=>a.techs);
+      //flatten the 2D array into 1D array
+      skills = [].concat.apply([], skills);
+      //sort and remove duplicates
+      $scope.skills = $scope.sort_unique(skills);
+      // $scope.longestProjectDuration = Math.max.apply(Math, $scope.projects.map(function(o) { return o.durationInMonths; }));
       $scope.showExperiences();
       $scope.$apply();
       $('[data-toggle="tooltip"]').tooltip()
     });
     new GitHubCalendar(".calendar", "alaacs", {responsive: true});
+    $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".dropdown-menu li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 
+  }
+  $scope.sort_unique = function(arr) {
+    if (arr.length === 0) return arr;
+    arr = arr.sort(function(a,b){
+          return a.localeCompare(b);
+      });
+    var ret = [arr[0]];
+    for (var i = 1; i < arr.length; i++) { //Start loop at 1: arr[0] can never be a duplicate
+      if (arr[i-1] !== arr[i]) {
+        ret.push(arr[i]);
+      }
+    }
+    return ret;
   }
   $scope.inializeMap = function() {
     $scope.map = L.map('map').setView([30.0444, 31.2357], 2);
@@ -128,6 +154,40 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
   }
   $scope.getCountryPolygon = function(countryName) {
     return $scope.countriespolygons.features.find(c => c.properties.name.toLowerCase().trim() == countryName.toLowerCase().trim())
+  }
+  $scope.filterProjects = function(skill){
+    if(!$scope.selectedSkills) $scope.selectedSkills = [];
+    if (!$scope.selectedSkills.includes(skill))
+    {
+      //add to the filtering skills
+      $scope.selectedSkills.push(skill);
+      //remove from the list of skills
+      $scope.skills = $scope.skills.filter(s => s !== skill);
+
+      $scope.selectedProjects = $scope.selectedProjects.filter(function(proj){
+        if($scope.selectedSkills.every(x => proj.techs.includes(x))) return true;
+        else return false;
+      });
+    }
+  }
+  $scope.filterInputKeyPress = function(e){
+    if(e.key == "ArrowDown")
+    {
+      var firstLi = $(".filter-tools-wrapper>ul>li:visible:first").focus().select();
+    }
+  }
+  $scope.listItemKeydown = function(e){
+    if(e.key == "Enter"){
+      $scope.filterProjects(e.currentTarget.innerText);
+      // $(e.currentTarget).children(":first");
+    }
+  }
+  $scope.clearFilters = function(){
+    $scope.skills = $scope.skills.concat($scope.selectedSkills).sort(function(a,b){
+          return a.localeCompare(b);
+      });
+    $scope.selectedSkills = [];
+    $scope.selectedProjects = $scope.allProjects;
   }
   $scope.experienceItemClicked = function(item) {
     if (item == "all")

@@ -24,7 +24,7 @@ h6 {
 h4 {
   font-family: 'Saira Extra Condensed', serif;
   font-weight: 700;
-  
+
   /* color: #343a40; */
 }
 
@@ -196,4 +196,37 @@ border-radius: 7px;
 .proj-row-even .project-desc{
   color: #e8e8e8;
   text-shadow: 1px 3px 2px black;
+}
+
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+.filter-tools-wrapper{
+  width: 50%;
+  padding-bottom:5px;
+}
+.filter-tools-wrapper>button{
+  width: 50%;
+  min-width: 200px;
+}
+.filter-tools-wrapper>ul>input{
+  margin-left: 5px;
+  width: 95%;
 }
