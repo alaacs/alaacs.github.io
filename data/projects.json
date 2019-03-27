@@ -190,7 +190,7 @@
     "projectSize": "Small",
     "location" : "Castellón de la Plana, Spain",
     "url": "",
-    "desc": "Developed various projects using, and other Esri tools and services that solve GIS problems locally in the city of Castellón, Spain\nOne of the projects using Story Maps and the final project was about creating a dynamic street network using ArcGIS Desktop, ArcGIS Server and Geoprocessing Tools.",
+    "desc": "Developed various projects using Esri tools and services that solve GIS problems locally in the city of Castellón, Spain\nOne of the projects using Story Maps and the final project was about creating a dynamic street network using ArcGIS Desktop, ArcGIS Server and Geoprocessing Tools.",
     "descUrl": "https://uji.maps.arcgis.com/apps/MapTour/index.html?appid=9b239b80a8444a56b10c099e6a1ae71c",
     "role": "Individual Projects",
     "techs": ["ArcGIS Online", "ArcGIS Map Services", "ArcGIS Geoprocessing Services", "ArcGIS Web App Builder", "ArcGIS Story Maps"]
