@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = "martaApp" style="height: 100%;">
+
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125875087-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-125875087-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Martita</title>
+
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <link href="css/resume.css" rel="stylesheet">
+
+
+  </head >
+
+  <body id="page-top" ng-controller="MartaController" ng-init="load()" style="height: 100%;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">Martita <3</span>
+        <span class="d-none d-lg-block">
+        <!-- <img  src="img/reef.jpeg" alt="" style = "width: 100%;margin-top: 90%;"> -->
+          <!-- <img class="img-fluid img-profile mx-auto mb-2" src="img/reef.jpeg" alt="" style = "border:0;max-height:none;max-width:100%"> -->
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid p-0" style="height: 100%;">
+
+      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+        <div class="my-auto">
+          <h1 style="text-transform: unset;" class="mb-0">Esta pagina es para <span style="color:crimson" >Martita  &#9829;</span>
+            <!-- <span class="text-primary" style = "color:#0093ff!important">Blog Article</span> Helper -->
+          </h1>
+          <!-- The CV in <a target="_blank" href="data/Alaa Abdelfattah - GIS Professional.pdf">PDF format</a> -->
+        <br>
+        <h2>
+          Estás aburrida?? Pues desplácesa hacia abajo un poco y haga clic en el botón, ¡le sugeriré algo!
+        </h2> 
+        </div>
+      </section>
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="map_section" style="height: 100%;">
+        <div class="my-auto" style="height: 100%;">
+          <button  class="btn btn-primary" type="button" id="btnPlayGame" ng-click="playGame()">¡Sugiérame algo!</button>
+          <br><br>
+          <div ng-show ="selectedThing" ng-class="selectedType.class" role="alert" style="height: 20%;">
+            {{selectedThing.message}} <br><a href="{{selectedThing.url}}" target="_blank">Desde Aquí</a>
+          </div>
+          <!-- <a href="https://wa.me/491788159543" target="_blank">send me something</a> -->
+        </div>
+
+      </section>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script>
+      var martaApp = angular.module('martaApp', []);
+      martaApp.controller('MartaController', function MartaController($scope) {
+        $scope.load = function(){
+          console.log("load")
+        }
+        $scope.playGame = function(){
+          $scope.types.forEach(type => {
+          type.thingsCount = $scope.thingsToDo.filter(thing => thing.type==type.typeName).length;
+          type.probabilityPerThing = type.probability/type.thingsCount;
+          });
+          let negativeExponents = $scope.types.map(t => 1 / t.probabilityPerThing);
+          let probabilityArrayLength = $scope.lcm(negativeExponents);
+          let arrayOfIndexes = [];
+          for (let i = 0; i < $scope.thingsToDo.length; i++) {
+            const thing = $scope.thingsToDo[i];
+            const type = $scope.types.find(t => t.typeName == thing.type);
+            arrayOfIndexes = arrayOfIndexes.concat(new Array(type.probabilityPerThing * probabilityArrayLength).fill(i));
+          }
+          let randomIndex = Math.floor(Math.random() * arrayOfIndexes.length);
+
+          $scope.selectedThing = $scope.thingsToDo[arrayOfIndexes[randomIndex]];
+          $scope.selectedType = $scope.types.find(t=>t.typeName==$scope.selectedThing.type);
+          if(!$scope.selectedThing.message)
+            $scope.selectedThing.message = $scope.selectedType.defaultMessage
+          console.log($scope.selectedThing)
+        }
+        $scope.lcm = function(input_array){
+          if (toString.call(input_array) !== "[object Array]")  
+            return  false;  
+          var r1 = 0, r2 = 0;
+          var l = input_array.length;
+          for(i=0;i<l;i++) {
+            r1 = input_array[i] % input_array[i + 1];
+            if(r1 === 0) {
+                input_array[i + 1] = (input_array[i] * input_array[i+1]) / input_array[i + 1];
+            }
+            else {
+                r2 = input_array[i + 1] % r1;
+                if(r2 === 0) {
+                    input_array[i + 1] = (input_array[i] * input_array[i + 1]) / r1;
+                }
+                else {
+                    input_array[i+1] = (input_array[i] * input_array[i + 1]) / r2;
+                }
+            }
+          }
+          return input_array[l - 1];
+        };
+        $scope.types = [
+          {typeName: "netflix", probability: 0.1, defaultMessage: "¿Ve un pelí o una serie? Pues:  ", class: "alert alert-danger"},
+          {typeName: "englishTest", probability: 0.2, defaultMessage: "A ver que tal con esta tema de inglés! :  ", class: "alert alert-warning"},
+          {typeName: "song", probability: 0.1, defaultMessage: "Solo escucha esa:  ", class: "alert alert-success"},
+          {typeName: "trivia", probability: 0.1, class: "alert alert-info"},
+          {typeName: "whatsapp", probability: 0.5, defaultMessage: "di a este chico qué te sientes: ", class: "alert alert-primary"}
+        ];
+        $scope.thingsToDo = [
+          {type: "song", url: "https://open.spotify.com/track/6OOIW83rFMkhsI7CJWDh2q?si=dB1GsDcoTIy4ySQt1250Ow"},
+          {type: "song", url: "https://open.spotify.com/track/0UomygnguJeUILqunpearo?si=CZJpsdZfQ2iVwgSnI8v-DA"},
+          {type: "song", url: "https://open.spotify.com/track/5iBP84nYff7zzoYGSfOwgf?si=7D1KW0cVRCyBvGYLIP0xnQ"},
+          {type: "song", url: "https://open.spotify.com/track/6EF2wGmHfnKSVjR3t6Ufwd?si=8-9-4WqlTUCIQcPoXM7kCQ"},
+          {type: "song", url: "https://open.spotify.com/track/6aCf6VSRinUSncMnLMqq0i?si=eH1DYFd0SVeRo-LKWvULRg"},
+          {type: "song", url: "https://open.spotify.com/track/03dzTYCKFMjo7qwbYec61S?si=6Cs-jQlRTZudLz1qFkVugQ"},
+          {type: "song", url: "https://open.spotify.com/track/4Clmg1g8n2yBYG13Z1oSdG?si=UX9xo4YsQLSZZnDJHwzKvw"},
+          {type: "song", url: "https://open.spotify.com/track/2TH65lNHgvLxCKXM3apjxI?si=TnpzZ5oxQTeXR8vscn5yaA"},
+          {type: "song", url: "https://open.spotify.com/track/7k4t7uLgtOxPwTpFmtJNTY?si=BDp0sKXCQwiLvQd2WHUTeA"},
+          {type: "song", url: "https://open.spotify.com/track/1LIqNVhaIgxXUt2eVoIQJ3?si=-rEWUuhLSOKqDJgyZfTtGQ"},
+          {type: "song", url: "https://open.spotify.com/track/4QNpBfC0zvjKqPJcyqBy9W?si=BCc8rF7FRvqUTtp80HfArg"},
+          {type: "song", url: "https://open.spotify.com/track/0KoiMHhqKLoL4xM54rcWYY?si=x1_4COwARIG4oTKu7AakeA"},
+          {type: "song", url: "https://open.spotify.com/track/059bcIhyc2SBwm6sw2AZzd?si=VEA3vAqAQyq0EYdZXEO-2Q"},
+          {type: "song", url: "https://open.spotify.com/track/6rXxAohZzTDsP5KT3IDFIU?si=s0QdqODpSuelXY8-AoRogw"},
+          {type: "song", url: "https://open.spotify.com/track/7g8YaUQABMal0zWe7a2ijz?si=OedRvO41S56BLk5--SHIZg"},
+          {type: "song", url: "https://open.spotify.com/track/6v0lAdFF4haL8xjBIUjtOw?si=Ruw2m2byT0WjYPFIV41LWA"},
+          {type: "song", url: "https://open.spotify.com/track/39shmbIHICJ2Wxnk1fPSdz?si=py89KApOT16uEImmUnYcYQ"},
+          {type: "song", url: "https://open.spotify.com/track/47wPvRG8FEwbZP22UBgTQr?si=DTw7hSWMS2C9wKw5Djlrhg"},
+          {type: "song", url: "https://open.spotify.com/track/57bgtoPSgt236HzfBOd8kj?si=cdutg1PVTQyqfdGPx9y25Q"},
+          {type: "song", url: "https://open.spotify.com/track/7DqTaelFf846rl1CHmyfOW?si=NvOiXPmtT2OmTuCO-eELGA"},
+          {type: "song", url: "https://open.spotify.com/track/4ggiDYAkJ7Yk8d5xOr7Xjo?si=LjbrVh5JQyueYB5dZypIQw"},
+          {type: "song", url: "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b?si=Ox1_R74QSAK2UWN-Jg27iA"},
+          {type: "song", url: "https://open.spotify.com/track/127QTOFJsJQp5LbJbu3A1y?si=rsMcsHahT06zXhAUUsTvbQ"},
+          {type: "song", url: "https://open.spotify.com/track/3PfIrDoz19wz7qK7tYeu62?si=Qh8i6RkuT56TsUhNFKXvVw"},
+          {type: "song", url: "https://open.spotify.com/track/24Yi9hE78yPEbZ4kxyoXAI?si=sI8-91-mTC-X-pm3HeUsaA"},
+          {type: "netflix", url: "https://www.netflix.com/title/80027158"},
+          {type: "netflix", url: "https://www.netflix.com/title/80098739"},
+          {type: "netflix", url: "https://www.netflix.com/title/81031768"},
+          {type: "netflix", url: "https://www.netflix.com/title/70136152"},
+          {type: "netflix", url: "https://www.netflix.com/title/80131568"},
+          {type: "netflix", url: "https://www.netflix.com/title/70286758"},
+          {type: "netflix", url: "https://www.netflix.com/title/80004164"},
+          {type: "netflix", url: "https://www.netflix.com/title/80094031"},
+          {type: "netflix", url: "https://www.netflix.com/title/70142827"},
+          {type: "netflix", url: "https://www.netflix.com/title/70077546"},
+          {type: "netflix", url: "https://www.netflix.com/title/70274001"},
+          {type: "netflix", url: "https://www.netflix.com/title/80049284"},
+          {type: "netflix", url: "https://www.netflix.com/title/70295061"},
+          {type: "netflix", url: "https://www.netflix.com/title/18171022"},
+          {type: "netflix", url: "https://www.netflix.com/title/70035186"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-1"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-2"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-3"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-4"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-5"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-6"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-7"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-8"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-9"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-10"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-11"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-12"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-13"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-14"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-15"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-16"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-17"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-18"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-20"},
+          {type: "englishTest", url: "https://www.bbc.co.uk/learningenglish/english/course/quizzes/unit-1/session-19"},
+          {type: "whatsapp", url: "https://wa.me/491788159543", message: "Tell me something hehe"},
+          {type: "whatsapp", url: "https://wa.me/491788159543", message: "Send me a selfie :P"},
+          {type: "whatsapp", url: "https://wa.me/491788159543", message: "Recommend me a song or a movie!"},
+          {type: "whatsapp", url: "https://wa.me/491788159543", message: "Tell me something I don't know about you...."},
+          {type: "trivia", url: "https://instagram.com/", message: "Echa un vistazo en instagram, pero solo por 10 minutos!"},
+          {type: "trivia", url: "https://www.youtube.com/playlist?list=WL", message: "tu lista de Youtube \"Ver más tarde\" tal vez?"},
+          {type: "trivia", url: "https://www.facebook.com/saved/", message: "tus enlaces guardados de Facebook que han estado allí para siempre"},
+        ];
+      });
+    </script>
+
+  </body>
+
+</html>
