@@ -34,7 +34,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
 
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">Martita <3</span>
+        <span class="d-block d-lg-none">Martita &#9829;</span>
         <span class="d-none d-lg-block">
         <!-- <img  src="img/reef.jpeg" alt="" style = "width: 100%;margin-top: 90%;"> -->
           <!-- <img class="img-fluid img-profile mx-auto mb-2" src="img/reef.jpeg" alt="" style = "border:0;max-height:none;max-width:100%"> -->
@@ -54,54 +54,172 @@
 
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto">
-          <h1 style="text-transform: unset;" class="mb-0">Esta pagina es para <span style="color:crimson" >Martita  &#9829;</span>
+          <h2 style="text-transform: unset;" class="mb-0">Esta pagina es para <span style="color:crimson" >Martita  &#9829;</span> 
+            <img src="img/marta.webp" alt="" style="width: 50px;height: auto;" />
+            
+
+
             <!-- <span class="text-primary" style = "color:#0093ff!important">Blog Article</span> Helper -->
-          </h1>
+          </h2>
           <!-- The CV in <a target="_blank" href="data/Alaa Abdelfattah - GIS Professional.pdf">PDF format</a> -->
         <br>
-        <h2>
+        <h3>
           Estás aburrida?? Pues desplácesa hacia abajo un poco y haga clic en el botón, ¡le sugeriré algo!
-        </h2> 
+        </h3> 
+        <br>
+        <h3>Welcome Advice</h3> 
+        <div ng-show ="welcomeAdvice" class="alert alert-primary" role="alert" style="height: 20%;">
+          {{welcomeAdvice}} 
         </div>
+        <div style="text-align: center;">
+          <img ng-cloak ng-show = "todaysRobot" src="{{todaysRobot}}" alt="" />
+          <div>{{todaysRobotName}}</div>
+        </div>
+        </div>
+        
       </section>
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="map_section" style="height: 100%;">
         <div class="my-auto" style="height: 100%;">
+          <div class="form-check" >
+            <input class="form-check-input" type="radio" checked name="option" ng-click="unfilterSuggestions()">
+              <label class="form-check-label">
+                Todo
+              </label>
+          </div>
+          <div class="form-check" ng-repeat="type in types" ng-show="type.useForFilter">
+            <input class="form-check-input" type="radio" name="option"
+              ng-model="type.selectedForFilter" ng-click="filterSuggestions(type)">
+            <label class="form-check-label">
+              {{type.displayName}}
+            </label>
+          </div>
+          <br>  
           <button  class="btn btn-primary" type="button" id="btnPlayGame" ng-click="playGame()">¡Sugiérame algo!</button>
           <br><br>
           <div ng-show ="selectedThing" ng-class="selectedType.class" role="alert" style="height: 20%;">
             {{selectedThing.message}} <br><a href="{{selectedThing.url}}" target="_blank">Desde Aquí</a>
           </div>
-          <!-- <a href="https://wa.me/491788159543" target="_blank">send me something</a> -->
+          <hr>
+          <br><br>
+          <div>
+            <h2>Zona de aburrimiento nivel 2</h2>
+            <button  class="btn btn-primary" type="button" ng-click="seeRandomCatPhoto()">Gato?</button>
+            <button  class="btn btn-primary" type="button" ng-click="seeRandomDogPhoto()">O perro?</button>
+            <!-- <button  class="btn btn-primary" type="button" ng-click="seeRandomBirdPhoto()">Foto de un pajaro al azar</button> -->
+            <button  class="btn btn-primary" type="button" ng-click="getBoredomSuggestion()">Consejo del internet?</button>
+            <br><br>
+            <div ng-show ="textAnswer" class="alert alert-primary" role="alert" style="height: 20%;">
+              {{textAnswer}} 
+              <br><a ng-show="answerLink" href="{{answerLink}}" target="_blank">Desde Aquí</a>
+            </div> 
+            <img style="width: 100%;" ng-cloak ng-show = "selectedImageUrl" src="{{selectedImageUrl}}" alt="" />
+            <video width="100%" preload=auto autoplay ng-src="{{selectedVideoeUrl}}" controls ng-show = "selectedVideoeUrl">
+              
+                Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
-
       </section>
-
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="node_modules/angular/angular.min.js"></script>
     <script>
       var martaApp = angular.module('martaApp', []);
-      martaApp.controller('MartaController', function MartaController($scope) {
+      martaApp.controller('MartaController', function MartaController($scope, $http) {
+        $scope.getTodaysRobot = function(){
+          let todayString = new Date().toISOString();
+          $scope.todaysRobot = "https://robohash.org/"+todayString;
+          $http.get('https://randomuser.me/api', {}).then(res => {
+            $scope.todaysRobotName = res.data.results[0].name.first + " " + res.data.results[0].name.last;
+          }, err => {
+
+          });
+        }
+        $scope.getBoredomSuggestion = function(){
+          let activityTypes = ["education", "diy", "cooking", "relaxation", "music", "busywork"];
+          let randomActivityType = activityTypes[Math.floor(Math.random() * activityTypes.length)];
+          let url = `https://www.boredapi.com/api/activity?participants=1&type=${randomActivityType}`
+          $http.get(url, {}).then(res => {
+            $scope.textAnswer = res.data.activity;
+            $scope.answerLink = res.data.link;
+          }, err => {
+
+          });
+        }
+        // $scope.seeRandomBirdPhoto = function(){
+        //   $http.get('http://shibe.online/api/birds', {}).then(res => {
+        //     $scope.selectedImageUrl = res.data;
+        //   }, err => {
+
+        //   });
+        // }
+        $scope.getRandomAdvice = function(){
+          $http.get('https://api.adviceslip.com/advice', {}).then(res => {
+            $scope.welcomeAdvice = res.data.slip.advice;
+          }, err => {
+
+          });
+        }
+        $scope.seeRandomDogPhoto = function(){
+          $http.get('https://random.dog/woof.json', {}).then(res => {
+            let url = res.data.url;
+            $scope.selectedVideoeUrl = null;
+            $scope.selectedImageUrl = null;
+            if(url.endsWith('mp4'))
+              $scope.selectedVideoeUrl = url;
+            else
+              $scope.selectedImageUrl = url; 
+          }, err => {
+
+          });
+        }
+        $scope.seeRandomCatPhoto = function(){
+          $http.get('https://aws.random.cat/meow', {}).then(res => {
+            let url = res.data.file;
+            $scope.selectedVideoeUrl = null;
+            $scope.selectedImageUrl = null;
+            if(url.endsWith('mp4'))
+              $scope.selectedVideoeUrl = url;
+            else
+              $scope.selectedImageUrl = url; 
+          }, err => {
+
+          });
+        }
         $scope.load = function(){
-          console.log("load")
+          $scope.filteredTypes = $scope.types;
+          $scope.getRandomAdvice();
+          $scope.getTodaysRobot();
+        }
+        $scope.unfilterSuggestions = function(){
+          $scope.filteredTypes = $scope.types;
+        }
+        $scope.filterSuggestions = function(type){
+          $scope.filteredTypes = $scope.types.filter(t => t.typeName == type.typeName);
+          //console.log(type)
         }
         $scope.playGame = function(){
-          $scope.types.forEach(type => {
-          type.thingsCount = $scope.thingsToDo.filter(thing => thing.type==type.typeName).length;
-          type.probabilityPerThing = type.probability/type.thingsCount;
+          let probabilitySum = $scope.filteredTypes.map(t=>t.probability).reduce((a, b) => a + b, 0);
+          $scope.filteredTypes.forEach(type => {
+            type.normalizedProbability = type.probability/probabilitySum;
+            type.thingsCount = $scope.thingsToDo.filter(thing => thing.type==type.typeName).length;
+            type.probabilityPerThing = type.normalizedProbability/type.thingsCount;
           });
-          let negativeExponents = $scope.types.map(t => 1 / t.probabilityPerThing);
+          let negativeExponents = $scope.filteredTypes.map(t => 1 / t.probabilityPerThing);
           let probabilityArrayLength = $scope.lcm(negativeExponents);
           let arrayOfIndexes = [];
           for (let i = 0; i < $scope.thingsToDo.length; i++) {
             const thing = $scope.thingsToDo[i];
-            const type = $scope.types.find(t => t.typeName == thing.type);
-            arrayOfIndexes = arrayOfIndexes.concat(new Array(type.probabilityPerThing * probabilityArrayLength).fill(i));
+            const type = $scope.filteredTypes.find(t => t.typeName == thing.type);
+            if(type)
+            {
+              arrayOfIndexes = arrayOfIndexes.concat(new Array(type.probabilityPerThing * probabilityArrayLength).fill(i));
+            }
           }
           let randomIndex = Math.floor(Math.random() * arrayOfIndexes.length);
 
           $scope.selectedThing = $scope.thingsToDo[arrayOfIndexes[randomIndex]];
-          $scope.selectedType = $scope.types.find(t=>t.typeName==$scope.selectedThing.type);
+          $scope.selectedType = $scope.filteredTypes.find(t=>t.typeName==$scope.selectedThing.type);
           if(!$scope.selectedThing.message)
             $scope.selectedThing.message = $scope.selectedType.defaultMessage
           console.log($scope.selectedThing)
@@ -129,11 +247,11 @@
           return input_array[l - 1];
         };
         $scope.types = [
-          {typeName: "netflix", probability: 0.1, defaultMessage: "¿Ve un pelí o una serie? Pues:  ", class: "alert alert-danger"},
-          {typeName: "englishTest", probability: 0.2, defaultMessage: "A ver que tal con esta tema de inglés! :  ", class: "alert alert-warning"},
-          {typeName: "song", probability: 0.1, defaultMessage: "Solo escucha esa:  ", class: "alert alert-success"},
-          {typeName: "trivia", probability: 0.1, class: "alert alert-info"},
-          {typeName: "whatsapp", probability: 0.5, defaultMessage: "di a este chico qué te sientes: ", class: "alert alert-primary"}
+          {typeName: "netflix", displayName: "Algo de Netflix", useForFilter: true, probability: 0.1, defaultMessage: "¿Ve un pelí o una serie? Pues:  ", class: "alert alert-danger"},
+          {typeName: "englishTest", displayName: "Algo de inglés", useForFilter: true, probability: 0.2, defaultMessage: "A ver que tal con esta tema de inglés! :  ", class: "alert alert-warning"},
+          {typeName: "song", displayName: "Una canción", useForFilter: true, probability: 0.1, defaultMessage: "Solo escucha esa:  ", class: "alert alert-success"},
+          {typeName: "trivia", displayName: "Trivia", useForFilter: false, probability: 0.1, class: "alert alert-info"},
+          {typeName: "whatsapp", displayName: "Whatsapp", useForFilter: false, probability: 0.5, defaultMessage: "di a este chico qué te sientes: ", class: "alert alert-primary"}
         ];
         $scope.thingsToDo = [
           {type: "song", url: "https://open.spotify.com/track/6OOIW83rFMkhsI7CJWDh2q?si=dB1GsDcoTIy4ySQt1250Ow"},
