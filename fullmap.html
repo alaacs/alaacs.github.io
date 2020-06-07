@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = "resumeApp" style="height: 100%;width: 100%;">
+
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125875087-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-125875087-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Alaa B. Abdelfattah</title>
+
+    <script src="js/github-calendar.min.js"></script>
+    <link rel="stylesheet" href="css/github-calendar.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/devicon/devicon.min.css">
+    <link href="node_modules/leaflet.markercluster/dist/MarkerCluster.css" rel="stylesheet">
+    <link href="css/resume.css" rel="stylesheet">
+    <link href="node_modules/leaflet/dist/leaflet.css" rel="stylesheet">
+    <link href="css/flags/flags.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top" ng-controller="ResumeController" ng-init="load()" style="height: 100%;width: 100%;padding: 0px;">
+      <ul class="nav col-md-2 col-12 justify-content-center align-self-center timeline">
+        <li class="nav-item col-12 align-self-center">
+          <a class="nav-link active small text-center"
+            data-toggle="tooltip" data-placement="right" title="All"
+            ng-click = "experienceItemClicked('all')"
+            ng-style="allSelected && { 'font-weight': 'bold', 'text-decoration': 'underline'}"
+            href>All</a>
+        </li>
+        <li ng-repeat="item in experience" class="nav-item col-12 align-self-center">
+          <a class="nav-link active small text-center"
+            data-toggle="tooltip" data-placement="right" title="{{item.description}}"
+            ng-click = "experienceItemClicked(item)"
+            ng-style="item.selected && { 'font-weight': 'bold', 'text-decoration': 'underline'}"
+            href>{{item.from + ((item.to) ? " to " + item.to : "")}}</a>
+        </li>
+
+      </ul>
+    <div id="map" style="height: 100%;width: 100%;"></div>
+    <div class="btn-group btn-group-toggle justify-content-center align-self-center col-md-10 col-12 experience-switcher" data-toggle="buttons">
+      <label class="btn btn-light active" ng-click="selectAllClicked()">
+        <input type="radio" name="options" id="option1" autocomplete="off"  checked> All
+      </label>
+      <label class="btn btn-light" ng-click="selectEducationClicked()">
+        <input type="radio" name="options" id="option2" autocomplete="off" > Education
+      </label>
+      <label class="btn btn-light" ng-click="selectWorkClicked()">
+        <input type="radio" name="options" id="option3" autocomplete="off" > Work
+      </label>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jquery-ui-dist/jquery-ui.min.js">
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/leaflet/dist/leaflet.js"></script>
+    <script src="node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="js/resumeapp.js"></script>
+  </body>
+
+</html>

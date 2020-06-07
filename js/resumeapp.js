@@ -191,9 +191,22 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
   }
   $scope.experienceItemClicked = function(item) {
     if (item == "all")
-      $scope.fiterTime = "all";
+      {
+        $scope.fiterTime = "all";
+        $scope.allSelected = true;
+        $scope.experience.forEach(item => {
+          item.selected = false;
+        });
+      }
     else
-      $scope.fiterTime = item.from;
+      {
+        $scope.allSelected = false;
+        $scope.experience.forEach(item => {
+          item.selected = false;
+        });
+        item.selected = true;
+        $scope.fiterTime = item.from;
+      }
     $scope.showExperiences();
   }
   $scope.workIconUrl = "img/work.png"

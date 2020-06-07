@@ -230,3 +230,22 @@ border-radius: 7px;
   margin-left: 5px;
   width: 95%;
 }
+.timeline{
+  position: absolute;
+  top: 100px;
+  z-index: 1000;
+  background: #d3d3d3c4;
+  border: 10px;
+  left: 2%;
+  border-radius: 27px;
+  width: 40%;
+}
+
+.experience-switcher{
+  position: absolute;
+  bottom: 2%;
+  z-index: 1000;
+  width: 100%;
+  text-align: center;
+  max-width: 100%;
+}
