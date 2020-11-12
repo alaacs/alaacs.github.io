@@ -282,4 +282,23 @@
 		"description":"As a formal requirement to complete the master of science in geospatial technologies, my class and I organized <a href= 'http://www.geomundus.org/2018' target = '_blank'>GeoMundus</a> conference.<br>I was the lead of the web team, conference moderator, and I led a workshop during the conference about open source geospatial technologies."
 		}
 	]
+},
+{
+	"from": "2019",
+	"to": "Present",
+	"experienceType":"work",
+	"companyName":"con terra",
+	"companyWebsite":"https://www.conterra.de/",
+	"title":"Software Engineer",
+	"description":"Work as a Software Engineer at con terra",
+	"location": {
+		"place":"con terra GMBH",
+		"city": "Münster, Germany",
+		"lat":51.9352125,
+		"long":7.6505801,
+		"country": "Germany"
+	},
+	"projects":[
+		
+	]
 }]
