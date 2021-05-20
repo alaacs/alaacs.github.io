@@ -25,7 +25,7 @@ resumeApp.controller('ResumeController', function ResumeController($scope) {
       $scope.$apply();
       $('[data-toggle="tooltip"]').tooltip()
     });
-    new GitHubCalendar(".calendar", "alaacs", {responsive: true});
+    // new GitHubCalendar(".calendar", "alaacs", {responsive: true});
     $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $(".dropdown-menu li").filter(function() {
